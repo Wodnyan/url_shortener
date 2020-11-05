@@ -1,34 +1,23 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 
-mongoose.connect(
-  "mongodb://localhost:27017/url_shortener",
-  {
-    auth: {
-      user: "root",
-      password: "example",
+dotenv.config();
+
+export default function connectToDb() {
+  mongoose.connect(
+    `mongodb://localhost:27017/${process.env.MONGO_DB}`,
+    {
+      auth: {
+        user: process.env.MONGO_USER!,
+        password: process.env.MONGO_PW!,
+      },
+      authSource: "admin",
+      useUnifiedTopology: true,
+      useNewUrlParser: true,
     },
-    authSource: "admin",
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-  },
-  (err) => {
-    if (err) console.log(err);
-    console.log("Connected to Db");
-  }
-);
-
-const schema = new mongoose.Schema({
-  foo: { type: String, required: true },
-});
-
-export const Foo = mongoose.model("foo", schema);
-
-Foo.create(
-  {
-    foo: "What is up retards",
-  },
-  (err) => {
-    if (err) return console.log(err.message);
-    console.log("Created");
-  }
-);
+    (err) => {
+      if (err) console.log(err);
+      console.log("Connected to Db");
+    }
+  );
+}
