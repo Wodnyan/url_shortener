@@ -7,7 +7,8 @@
     "test": "npx jest",
     "start": "node dist/index.js",
     "build": "tsc",
-    "dev": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/index.ts"
+    "dev": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/index.ts",
+    "styles": "npx sass --watch scss/index.scss:public/css/styles.css"
   },
   "author": "Albert Gergo",
   "license": "ISC",
@@ -31,6 +32,7 @@
     "@types/supertest": "^2.0.10",
     "dotenv": "^8.2.0",
     "jest": "^26.4.2",
+    "node-sass": "^5.0.0",
     "supertest": "^5.0.0",
     "ts-jest": "^26.4.1",
     "typescript": "^4.0.2"

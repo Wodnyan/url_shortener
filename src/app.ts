@@ -14,6 +14,7 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.use("/static", express.static(path.join(__dirname + "/../public")));
 app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
