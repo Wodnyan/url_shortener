@@ -26,9 +26,10 @@ app.get("/:id", async (req, res, next) => {
   if (url) {
     res.redirect(url.url);
   } else {
-    const error = new Error("Not Found");
-    res.status(404);
-    next(error);
+    res.render("notFound");
+    // const error = new Error("Not Found");
+    // res.status(404);
+    // next(error);
   }
 });
 app.use("/api/v1", api);
