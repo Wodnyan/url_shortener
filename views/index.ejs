@@ -8,10 +8,12 @@
 </head>
 <body>
   <div id="root">
-    <form>
+    <form id="url-form">
       <label for="url-input"></label>
-      <input id="url-input" type="text">
-      <input id="url-id-input" type="text">
+      <span class="inputs">
+        <input placeholder="Type in a URL" id="url-input" type="text">
+        <input placeholder="Id" id="url-id-input" type="text">
+      </span>
       <button class="btn" id="url-button">Gib me URL</button>
       <p class="error"></p>
     </form>
