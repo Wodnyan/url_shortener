@@ -7,6 +7,8 @@ const successResponse = successContainer.querySelector(".success__response");
 
 formButton.addEventListener("click", async (e) => {
   e.preventDefault();
+  resetSuccessResponse();
+  setErrorResponse("");
   const FetchOptions = {
     method: "POST",
     headers: {
@@ -26,9 +28,13 @@ formButton.addEventListener("click", async (e) => {
 });
 
 function setSuccessResponse(url) {
-  successContainer.style.color = "red";
+  successContainer.classList.add("success--show");
   successResponse.textContent = url;
   successResponse.href = url;
+}
+
+function resetSuccessResponse() {
+  successContainer.classList.remove("success--show");
 }
 
 function setErrorResponse(errorMessage) {
