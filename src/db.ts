@@ -4,20 +4,16 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export default function connectToDb() {
+  const { MONGO_USER, MONGO_PW, MONGO_DB } = process.env;
   mongoose.connect(
-    `mongodb://localhost:27017/${process.env.MONGO_DB}`,
+    `mongodb+srv://${MONGO_USER}:${MONGO_PW}@my-cluster.jv3bc.mongodb.net/${MONGO_DB}?retryWrites=true&w=majority`,
     {
-      auth: {
-        user: process.env.MONGO_USER!,
-        password: process.env.MONGO_PW!,
-      },
-      authSource: "admin",
-      useUnifiedTopology: true,
       useNewUrlParser: true,
+      useUnifiedTopology: true,
     },
-    (err) => {
-      if (err) console.log(err);
-      console.log("Connected to Db");
+    (error) => {
+      if (error) return console.log("Failed to connect to databse", error);
+      console.log("Connected to DB");
     }
   );
 }
