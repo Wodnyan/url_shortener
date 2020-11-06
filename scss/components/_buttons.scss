@@ -1,0 +1,11 @@
+@import "../utilites/variables";
+.btn {
+  background: $medium-champagne;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    background: $deep-champagne;
+  }
+}

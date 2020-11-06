@@ -1,4 +1,9 @@
-import { Schema, model } from "mongoose";
+import { Schema, model, Document } from "mongoose";
+
+interface Url extends Document {
+  url: string;
+  url_id?: string;
+}
 
 const UrlSchema = new Schema({
   url: { type: String, required: true, maxLength: 2000, minlength: 2 },
@@ -9,6 +14,6 @@ const UrlSchema = new Schema({
   },
 });
 
-const Url = model("url", UrlSchema);
+const Url = model<Url>("url", UrlSchema);
 
 export default Url;

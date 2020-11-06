@@ -1,6 +1,4 @@
-body {
-  height: 100%;
-  h1 {
-    color: red;
-  }
-}
+@import "./base/base";
+@import "./base/typography";
+@import "./components/buttons";
+@import "./components/error";

@@ -4,24 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Test</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
   <div id="root">
     <form>
       <label for="url-input"></label>
       <input id="url-input" type="text">
+      <input id="url-id-input" type="text">
       <button class="btn" id="url-button">Gib me URL</button>
+      <p class="error"></p>
     </form>
+    <div class="success">
+      <h1 class="success__message">
+        hello
+      </h1>
+      <a class="success__response">
+        world
+      </a>
+    </div>
   </div>
-  <script>
-    const formButton = document.querySelector("#url-button");
-    const urlInput = document.querySelector("#url-input");
-    formButton.addEventListener("click", (e) => {
-      e.preventDefault();
-      fetch("/api/v1/url")
-        .then(res => res.json())
-        .then(res => console.log(res))
-    })
-  </script>
+  <script src="/static/scripts/app.js"></script>
 </body>
 </html>

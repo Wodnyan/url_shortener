@@ -1,0 +1,12 @@
+@import "../utilites/variables";
+*,
+*::after,
+*::before {
+  margin: 0;
+}
+body,
+html {
+  height: 100%;
+  background: $dark-purple;
+  color: #fff;
+}
