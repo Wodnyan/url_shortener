@@ -16,7 +16,7 @@ formButton.addEventListener("click", async (e) => {
     },
     body: JSON.stringify({ url: urlInput.value, url_id: urlIdInput.value }),
   };
-  if (urlInput.value && urlIdInput.value) {
+  if (urlInput.value) {
     const resp = await fetch("/api/v1/url", FetchOptions);
     const data = await resp.json();
     if (resp.ok) {
